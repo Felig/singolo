@@ -161,13 +161,15 @@
   }
 }
 
-@media screen and (min-width: 375px) and (max-width: 768px) {
+@media screen and (min-width: 260px) and (max-width: 768px) {
   .header_width {
     display: grid;
     grid-template-rows: 70px;
     justify-content: stretch;
     width: 100%;
     background: #2D303A;
+    position: fixed;
+    z-index: 1;
   }
   header {
     display: grid;
@@ -204,6 +206,9 @@
   }
   .header__nav, .copyright, .header_down_line {
     display: none;
+  }
+  main {
+    padding-top: 70px;
   }
   .services_list {
     padding-left: 40px;
@@ -338,7 +343,6 @@ header h1:after {
   opacity: 0.5;
   height: 50px;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, .5);
 }
 
 .slider__control:hover, .slider__control:focus {
@@ -359,8 +363,8 @@ header h1:after {
 .slider__control::before {
   content: '';
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: transparent no-repeat center center;
   background-size: 100% 100%;
 }

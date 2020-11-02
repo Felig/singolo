@@ -238,3 +238,9 @@ var multiItemSlider = (function () {
 var slider = multiItemSlider('.slider', {
     isCycling: true
 })
+
+const menuBtn = document.getElementById('menu_btn');
+menuBtn.addEventListener("click", () => {
+    document.getElementById("header_nav").classList.toggle('visible');
+    menuBtn.classList.toggle('rotate_btn');
+});

@@ -243,4 +243,5 @@ const menuBtn = document.getElementById('menu_btn');
 menuBtn.addEventListener("click", () => {
     document.getElementById("header_nav").classList.toggle('visible');
     menuBtn.classList.toggle('rotate_btn');
+    document.getElementById("logo").classList.toggle('logo_menu_activ');
 });

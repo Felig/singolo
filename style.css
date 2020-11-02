@@ -241,6 +241,15 @@
     font-style: normal;
     font-weight: bold;
   }
+  .logo_menu_activ {
+    position: fixed;
+    z-index: 3;
+    margin-top: 10px;
+    margin-left: 70px;
+  }
+  #picture {
+    z-index: 3;
+  }
   .menu_btn {
     display: block;
     background-image: url("./img/menu.svg");
@@ -269,17 +278,19 @@
     padding-bottom: 28px;
     padding-left: 30px;
   }
-  header ul {
-    padding-bottom: 50%;
-  }
+  header ul {}
   .header__nav {
-    display: none;
+    /*display: none;*/
+    display: flex;
+    align-items: center;
     position: fixed;
     z-index: 1;
     background-color: #2D303A;
     height: 100%;
     width: 75%;
-    margin-top: 70px;
+    opacity: 0;
+    transition: .3s;
+    visibility: hidden;
   }
   header a {
     text-decoration: none;
@@ -590,14 +601,14 @@ footer a:hover {
 }
 
 .visible {
-  display: flex;
-  align-items: center;
+  opacity: 1;
+  visibility: visible;
 }
 
 .rotate_btn {
   transform: rotate(90deg);
 }
 
-.img_portfolio img, .slider__item img {
+/*.img_portfolio img, .slider__item img {
   filter: brightness(0) invert(1);
-}
+}*/

@@ -40,7 +40,7 @@ var multiItemSlider = (function () {
             _config = {
                 isCycling: false, // автоматическая смена слайдов
                 direction: 'right', // направление смены слайдов
-                interval: 10000, // интервал между автоматической сменой слайдов
+                interval: 30000, // интервал между автоматической сменой слайдов
                 pause: true // устанавливать ли паузу при поднесении курсора к слайдеру
             };
 
@@ -129,6 +129,7 @@ var multiItemSlider = (function () {
                 _transform += _step;
             }
             _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+            document.getElementById("slider_section").classList.toggle('slider_blue');
         }
 
         var _cycle = function (direction) {
@@ -152,6 +153,7 @@ var multiItemSlider = (function () {
         };
 
         // обработка события изменения видимости страницы
+
         var _handleVisibilityChange = function () {
             if (document.visibilityState === "hidden") {
                 clearInterval(_interval);

@@ -233,7 +233,6 @@ var multiItemSlider = (function () {
                 _cycle();
             }
         }
-
     }
 }());
 
@@ -241,6 +240,7 @@ var slider = multiItemSlider('.slider', {
     isCycling: true
 })
 
+//mobile menu button
 const menuBtn = document.getElementById('menu_btn');
 menuBtn.addEventListener("click", () => {
     document.getElementById("header_nav").classList.toggle('visible');
@@ -248,3 +248,22 @@ menuBtn.addEventListener("click", () => {
     document.getElementById("logo_2").classList.toggle('visible');
     document.getElementById("shadow").classList.toggle('visible');
 });
+
+//smooth scroll and close burger-menu
+
+const smoothLinks = document.querySelectorAll('a[href^="#_"]');
+for (let smoothLink of smoothLinks) {
+    smoothLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = smoothLink.getAttribute('href');
+        document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        //window.scrollTo({ top: document.querySelector(id).getBoundingClientRect().top, behavior: 'smooth' });
+        //console.log(id);
+        document.getElementById("header_nav").classList.toggle('visible');
+        menuBtn.classList.toggle('rotate_btn');
+        document.getElementById("logo_2").classList.toggle('visible');
+        document.getElementById("shadow").classList.toggle('visible');
+        //console.log(document.querySelector(id).getBoundingClientRect());
+    });
+};
+

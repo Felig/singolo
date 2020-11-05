@@ -1,6 +1,8 @@
 @media screen and (min-width: 1020px) {
   .header_width {
     display: grid;
+    position: fixed;
+    z-index: 1;
     grid-template-rows: 89px 6px;
     justify-content: stretch;
     width: 100%;
@@ -59,6 +61,9 @@
   }
   header a:hover {
     color: #F06C64;
+  }
+  main {
+    padding-top: 95px;
   }
   .services_list {
     padding-left: 40px;
@@ -111,6 +116,8 @@
 @media screen and (min-width: 768px) and (max-width: 1020px) {
   .header_width {
     display: grid;
+    position: fixed;
+    z-index: 1;
     grid-template-rows: 89px 6px;
     justify-content: stretch;
     width: 100%;
@@ -169,6 +176,9 @@
   }
   header a:hover {
     color: #F06C64;
+  }
+  main {
+    padding-top: 95px;
   }
   .services_list {
     padding-left: 40px;
@@ -644,7 +654,6 @@ footer a:hover {
   background-color: #648BF0;
 }
 
-/*
 .img_portfolio img, .slider__item img {
   filter: brightness(0) invert(1);
 }

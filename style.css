@@ -73,6 +73,20 @@
     grid-column-gap: 20px;
     grid-row-gap: 20px;
   }
+  .text_services, .description_portfolio {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    color: #767E9E;
+  }
+  .filter_list {
+    margin: 0;
+    padding-left: 40px;
+  }
   .grid_filter {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -187,6 +201,20 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+  }
+  .text_services, .description_portfolio {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    color: #767E9E;
+  }
+  .filter_list {
+    margin: 0;
+    padding-left: 40px;
   }
   .grid_filter {
     display: grid;
@@ -346,19 +374,33 @@
     padding-top: 70px;
   }
   .services_list {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
+  }
+  .text_services, .description_portfolio {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    color: #767E9E;
+  }
+  .filter_list {
+    margin: 0;
+    padding-left: 30px;
   }
   .grid_filter {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
   footer {
     display: grid;
@@ -507,17 +549,6 @@ h3 {
   color: #666D89;
 }
 
-.text_services, .description_portfolio {
-  padding-left: 40px;
-  padding-right: 40px;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 30px;
-  color: #767E9E;
-}
-
 .text_services {
   margin: 0;
   padding-top: 24px;
@@ -582,7 +613,7 @@ h3 {
 .filter_text {
   display: inline-block;
   margin: 0;
-  padding-right: 6px;
+  padding-right: 2px;
 }
 
 .filter_link {
@@ -604,10 +635,6 @@ h3 {
 .filter_link:hover {
   color: #fff;
   border-color: #fff;
-}
-
-.filter_list {
-  margin: 0;
 }
 
 .footer_up_line {

@@ -272,7 +272,8 @@ for (let smoothLink of smoothLinks) {
 };
 
 //hide-show burger-menu from tap on menu-shadow
-document.getElementById("shadow").addEventListener('click', () => {
+const shadowMenu = document.getElementById("shadow");
+shadowMenu.addEventListener('click', () => {
     document.getElementById("header_nav").classList.toggle('visible');
     menuBtn.classList.toggle('rotate_btn');
     document.getElementById("logo_2").classList.toggle('visible');

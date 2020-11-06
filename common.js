@@ -249,21 +249,32 @@ menuBtn.addEventListener("click", () => {
     document.getElementById("shadow").classList.toggle('visible');
 });
 
-//smooth scroll and close burger-menu
-
-const smoothLinks = document.querySelectorAll('a[href^="#_"]');
+//smooth scroll and hide-show burger-menu
+const smoothLinks = document.querySelectorAll('a[href^="#Link"]');
 for (let smoothLink of smoothLinks) {
     smoothLink.addEventListener('click', function (e) {
         e.preventDefault();
         const id = smoothLink.getAttribute('href');
-        document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        //window.scrollTo({ top: document.querySelector(id).getBoundingClientRect().top, behavior: 'smooth' });
-        //console.log(id);
+        var offsetFixHeader;
+        if (window.screen.availWidth > 768) {
+            offsetFixHeader = 95;
+        }
+        else
+            offsetFixHeader = 70;
+        var scrollTopCoordinate = document.querySelector(id).getBoundingClientRect().top - offsetFixHeader;
+        window.scrollBy({ top: scrollTopCoordinate, behavior: 'smooth' });
+        //hide-show burger-menu
         document.getElementById("header_nav").classList.toggle('visible');
         menuBtn.classList.toggle('rotate_btn');
         document.getElementById("logo_2").classList.toggle('visible');
         document.getElementById("shadow").classList.toggle('visible');
-        //console.log(document.querySelector(id).getBoundingClientRect());
     });
 };
 
+//hide-show burger-menu from tap on menu-shadow
+document.getElementById("shadow").addEventListener('click', () => {
+    document.getElementById("header_nav").classList.toggle('visible');
+    menuBtn.classList.toggle('rotate_btn');
+    document.getElementById("logo_2").classList.toggle('visible');
+    document.getElementById("shadow").classList.toggle('visible');
+});

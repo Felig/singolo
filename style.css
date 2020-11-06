@@ -397,8 +397,8 @@
   .grid_filter {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    grid-column-gap: 14px;
+    grid-row-gap: 14px;
     padding-left: 30px;
     padding-right: 30px;
   }

@@ -59,9 +59,11 @@
     content: "·";
     color: #fff;
   }
+  /*
   header a:hover {
     color: #F06C64;
   }
+  */
   main {
     padding-top: 95px;
   }
@@ -188,9 +190,11 @@
     content: "·";
     color: #fff;
   }
+  /*
   header a:hover {
     color: #F06C64;
   }
+  */
   main {
     padding-top: 95px;
   }
@@ -367,9 +371,11 @@
     padding-right: 15px;
     color: #fff;
   }
+  /*
   header a:hover {
     color: #F06C64;
   }
+  */
   main {
     padding-top: 70px;
   }
@@ -679,6 +685,10 @@ footer a:hover {
 
 .slider_blue {
   background-color: #648BF0;
+}
+
+.red_menu {
+  color: #f06c64;
 }
 
 /*

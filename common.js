@@ -249,18 +249,75 @@ menuBtn.addEventListener("click", () => {
     document.getElementById("shadow").classList.toggle('visible');
 });
 
+
+
+//hide-show burger-menu from tap on menu-shadow
+const shadowMenu = document.getElementById("shadow");
+shadowMenu.addEventListener('click', () => {
+    document.getElementById("header_nav").classList.toggle('visible');
+    menuBtn.classList.toggle('rotate_btn');
+    document.getElementById("logo_2").classList.toggle('visible');
+    document.getElementById("shadow").classList.toggle('visible');
+});
+
+
+
+
+const home = document.getElementById("link_home");
+const services = document.getElementById("link_services");
+const portfolio = document.getElementById("link_portfolio");
+const about = document.getElementById("link_about");
+const contact = document.getElementById("link_contact");
+
+home.addEventListener("click", () => {
+    home.classList.add("red_menu");
+    services.classList.remove("red_menu");
+    portfolio.classList.remove("red_menu");
+    about.classList.remove("red_menu");
+    contact.classList.remove("red_menu");
+});
+services.addEventListener("click", () => {
+    services.classList.add("red_menu");
+    home.classList.remove("red_menu");
+    portfolio.classList.remove("red_menu");
+    about.classList.remove("red_menu");
+    contact.classList.remove("red_menu");
+});
+portfolio.addEventListener("click", () => {
+    portfolio.classList.add("red_menu");
+    home.classList.remove("red_menu");
+    services.classList.remove("red_menu");
+    about.classList.remove("red_menu");
+    contact.classList.remove("red_menu");
+});
+about.addEventListener("click", () => {
+    contact.classList.remove("red_menu");
+    home.classList.remove("red_menu");
+    portfolio.classList.remove("red_menu");
+    about.classList.add("red_menu");
+    services.classList.remove("red_menu");
+});
+contact.addEventListener("click", () => {
+    contact.classList.add("red_menu");
+    home.classList.remove("red_menu");
+    portfolio.classList.remove("red_menu");
+    about.classList.remove("red_menu");
+    services.classList.remove("red_menu");
+});
+
+
 //smooth scroll and hide-show burger-menu
+var offsetFixHeader;
+if (window.screen.availWidth > 768) {
+    offsetFixHeader = 95;
+}
+else
+    offsetFixHeader = 70;
 const smoothLinks = document.querySelectorAll('a[href^="#Link"]');
 for (let smoothLink of smoothLinks) {
     smoothLink.addEventListener('click', function (e) {
         e.preventDefault();
         const id = smoothLink.getAttribute('href');
-        var offsetFixHeader;
-        if (window.screen.availWidth > 768) {
-            offsetFixHeader = 95;
-        }
-        else
-            offsetFixHeader = 70;
         var scrollTopCoordinate = document.querySelector(id).getBoundingClientRect().top - offsetFixHeader;
         window.scrollBy({ top: scrollTopCoordinate, behavior: 'smooth' });
         //hide-show burger-menu
@@ -271,11 +328,42 @@ for (let smoothLink of smoothLinks) {
     });
 };
 
-//hide-show burger-menu from tap on menu-shadow
-const shadowMenu = document.getElementById("shadow");
-shadowMenu.addEventListener('click', () => {
-    document.getElementById("header_nav").classList.toggle('visible');
-    menuBtn.classList.toggle('rotate_btn');
-    document.getElementById("logo_2").classList.toggle('visible');
-    document.getElementById("shadow").classList.toggle('visible');
+
+window.addEventListener("wheel", () => {
+    let scrollServiceY = document.querySelector('#Link_services').getBoundingClientRect().top + window.pageYOffset - offsetFixHeader;
+    let scrollPortfolioY = document.querySelector('#Link_portfolio').getBoundingClientRect().top + window.pageYOffset - offsetFixHeader;
+    let scrollFooterY = document.querySelector('#Link_footer').getBoundingClientRect().top + window.pageYOffset - offsetFixHeader;
+    if (window.pageYOffset >= 0 && window.pageYOffset < scrollServiceY) {
+        home.classList.add("red_menu");
+        services.classList.remove("red_menu");
+        portfolio.classList.remove("red_menu");
+        contact.classList.remove("red_menu");
+    } else if (window.pageYOffset >= scrollServiceY && window.pageYOffset < scrollPortfolioY) {
+        services.classList.add("red_menu");
+        home.classList.remove("red_menu");
+        portfolio.classList.remove("red_menu");
+        contact.classList.remove("red_menu");
+    } else if (window.pageYOffset >= scrollPortfolioY && window.pageYOffset < scrollFooterY) {
+        services.classList.remove("red_menu");
+        home.classList.remove("red_menu");
+        portfolio.classList.add("red_menu");
+        contact.classList.remove("red_menu");
+    }
 });
+
+
+const portfolioTabs = document.querySelectorAll('.filter_link');
+const portfilioPictures = document.querySelectorAll('.img_portfolio');
+const portfilioPicturesCount = portfilioPictures.length;
+
+const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+
+
+for (const element of portfolioTabs) {
+    element.addEventListener('click', (event) => {
+        event.preventDefault();
+        for (const element of portfilioPictures) {
+            element.style.order = `${getRandomInt(portfilioPicturesCount)}`;
+        }
+    });
+}

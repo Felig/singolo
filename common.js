@@ -1,3 +1,5 @@
+
+/*
 'use strict';
 var multiItemSlider = (function () {
 
@@ -239,6 +241,51 @@ var multiItemSlider = (function () {
 var slider = multiItemSlider('.slider', {
     isCycling: true
 })
+*/
+const arrowLeft = document.querySelector('.slider__control_left');
+const arrowRight = document.querySelector('.slider__control_right');
+const sliderLine = document.querySelector('.slider__wrapper');
+const images = document.querySelectorAll('.slider__item');
+
+let counter = 0;
+images[counter].style.display = 'block';
+arrowRight.addEventListener('click', () => {
+    let nextIndex = counter + 1;
+
+    if (nextIndex >= images.length) {
+        nextIndex = 0;
+    }
+
+    const next = images[nextIndex];
+    sliderLine.append(next);
+    next.style.display = 'block';
+    next.style.animation = 'moveRight 1s';
+    document.getElementById("slider_section").classList.toggle('slider_blue');
+
+    counter += 1;
+    if (counter >= images.length) {
+        counter = 0;
+    }
+});
+
+arrowLeft.addEventListener('click', () => {
+    let prevIndex = counter - 1;
+
+    if (prevIndex < 0) {
+        prevIndex = images.length - 1;
+    }
+
+    const prev = images[prevIndex];
+    sliderLine.append(prev);
+    prev.style.display = 'block';
+    prev.style.animation = 'moveLeft 1s';
+    document.getElementById("slider_section").classList.toggle('slider_blue');
+
+    counter -= 1;
+    if (counter < 0) {
+        counter = images.length - 1;
+    }
+});
 
 //mobile menu button
 const menuBtn = document.getElementById('menu_btn');
@@ -269,6 +316,7 @@ const portfolio = document.getElementById("link_portfolio");
 const about = document.getElementById("link_about");
 const contact = document.getElementById("link_contact");
 
+
 home.addEventListener("click", () => {
     home.classList.add("red_menu");
     services.classList.remove("red_menu");
@@ -291,6 +339,7 @@ portfolio.addEventListener("click", () => {
     contact.classList.remove("red_menu");
 });
 about.addEventListener("click", () => {
+    //about.preventDefault();
     contact.classList.remove("red_menu");
     home.classList.remove("red_menu");
     portfolio.classList.remove("red_menu");
